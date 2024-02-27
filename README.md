@@ -1,3 +1,46 @@
+
+Here are the schemas for all three tables with the `NOT NULL` constraints added to all columns except primary keys:
+
+```sql
+CREATE TABLE Users (
+    Employee_Id INTEGER PRIMARY KEY,
+    First_Name VARCHAR(15) NOT NULL,
+    Last_Name VARCHAR(10) NOT NULL,
+    Phone_Number VARCHAR(10) NOT NULL,
+    Email_Address VARCHAR(50) NOT NULL,
+    Role VARCHAR(15) NOT NULL,
+    Max_Passengers_Allowed INTEGER NOT NULL,
+    Fare_Per_KM INTEGER NOT NULL,
+    Assigned_On DATE NOT NULL,
+    CurrentGradeId INTEGER,
+    FOREIGN KEY (CurrentGradeId) REFERENCES Grades(Id)
+);
+
+CREATE TABLE Grades (
+    Grade_Id INTEGER PRIMARY KEY,
+    Name VARCHAR(25) NOT NULL,
+    Max_Passengers_Allowed INTEGER NOT NULL,
+    Fare_Per_KM INTEGER NOT NULL,
+    Assigned_On DATE NOT NULL,
+    Employee_Id INTEGER NOT NULL,
+    FOREIGN KEY (Employee_Id) REFERENCES Users(Employee_Id)
+);
+
+CREATE TABLE GradesHistory (
+    Id INTEGER PRIMARY KEY,
+    Assigned_On DATE NOT NULL,
+    Employee_Id INTEGER NOT NULL,
+    Grade_Id INTEGER NOT NULL,
+    Max_Passengers_Allowed INTEGER NOT NULL,
+    Fare_Per_KM INTEGER NOT NULL,
+    FOREIGN KEY (Employee_Id) REFERENCES Users(Employee_Id),
+    FOREIGN KEY (Grade_Id) REFERENCES Grades(Grade_Id)
+);
+```
+
+This adds `NOT NULL` constraints to all columns except primary keys. Let me know if you need any further adjustments!
+
+
 Here's an example of a data SQL script for your schema:
 
 ```sql
