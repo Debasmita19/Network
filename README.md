@@ -1,3 +1,30 @@
+Sure, here's an example of a data SQL script for your schema:
+
+```sql
+-- Insert data into VehicleTypes table
+INSERT INTO VehicleTypes (Id, Max_Passengers_Allowed, Fare_Per_KM)
+VALUES
+    (1, 5, 10),
+    (2, 4, 12),
+    (3, 7, 8);
+
+-- Insert data into Vehicles table
+INSERT INTO Vehicles (Registration_No, BelongsTo_User_Id, Vehicle_Type_Id, Inspection_Status, Inspected_By_User_Id, Inspected_On)
+VALUES
+    ('ABC123', 1, 1, 'In', 88, '2024-02-27'),
+    ('XYZ456', 2, 2, 'Ir', 89, '2024-02-28'),
+    ('LMN789', 3, 1, 'PL', 90, '2024-03-01');
+
+-- Insert data into VehicleDetails table
+INSERT INTO VehicleDetails (Registration_No, RTO_Name, Registration_Date, Registration_Expires_On, RC_Doc_URL, Insurance_Company_Name, Insurance_No, Insuranced_On, Insurance_Expires_On, Insurance_Certificate_DOC_URL, PUC_Certificate_No, PUC_Issued_On, PUC_Valid_Until, PUC_DOC_URL, Accessibility_Investigate, Search)
+VALUES
+    ('ABC123', 'RTO1', '2023-01-01', '2024-01-01', 'url1', 'Company1', 12345, '2023-01-01', '2024-01-01', 'url1', 54321, '2023-01-01', '2024-01-01', 'url1', 'Yes', 'No'),
+    ('XYZ456', 'RTO2', '2023-02-01', '2024-02-01', 'url2', 'Company2', 67890, '2023-02-01', '2024-02-01', 'url2', 09876, '2023-02-01', '2024-02-01', 'url2', 'No', 'Yes'),
+    ('LMN789', 'RTO3', '2023-03-01', '2024-03-01', 'url3', 'Company3', 13579, '2023-03-01', '2024-03-01', 'url3', 24680, '2023-03-01', '2024-03-01', 'url3', 'Yes', 'No');
+```
+
+This script inserts sample data into each of your tables. Adjust the values as needed for your actual data. Let me know if you need further assistance!
+
 
 Certainly! Here's the updated schema for all three tables without the `IF NOT EXISTS` clause:
 
