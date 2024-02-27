@@ -1,3 +1,33 @@
+Here's an example of a data SQL script for your schema:
+
+```sql
+-- Insert data into Grades table
+INSERT INTO Grades (Grade_Id, Name, Max_Passengers_Allowed, Fare_Per_KM, Assigned_On, Employee_Id)
+VALUES
+    (1, 'Grade A', 5, 10, '2022-01-01', 101),
+    (2, 'Grade B', 4, 12, '2022-01-02', 102),
+    (3, 'Grade C', 7, 8, '2022-01-03', 103);
+
+-- Insert data into Users table
+INSERT INTO Users (Employee_Id, First_Name, Last_Name, Phone_Number, Email_Address, Role, Max_Passengers_Allowed, Fare_Per_KM, Assigned_On, CurrentGradeId)
+VALUES
+    (101, 'John', 'Doe', '1234567890', 'john.doe@example.com', 'Manager', 5, 10, '2022-01-01', 1),
+    (102, 'Jane', 'Doe', '9876543210', 'jane.doe@example.com', 'Supervisor', 4, 12, '2022-01-02', 2),
+    (103, 'Alice', 'Smith', '5555555555', 'alice.smith@example.com', 'Employee', 7, 8, '2022-01-03', 3);
+
+-- Insert data into GradesHistory table
+INSERT INTO GradesHistory (Id, Assigned_On, Employee_Id, Grade_Id, Max_Passengers_Allowed, Fare_Per_KM)
+VALUES
+    (1, '2022-01-01', 101, 1, 5, 10),
+    (2, '2022-01-02', 102, 2, 4, 12),
+    (3, '2022-01-03', 103, 3, 7, 8);
+```
+
+This script inserts sample data into each of your tables. Adjust the values as needed for your actual data. Let me know if you need further assistance!
+
+
+
+
 Got it. Here's the updated schema for all three tables with the foreign key constraints added:
 
 ```sql
