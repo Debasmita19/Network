@@ -1,3 +1,49 @@
+Got it. Here's the updated schema for all three tables with the foreign key constraints added:
+
+```sql
+CREATE TABLE Users (
+    Employee_Id INTEGER PRIMARY KEY,
+    First_Name VARCHAR(15),
+    Last_Name VARCHAR(10),
+    Phone_Number VARCHAR(10),
+    Email_Address VARCHAR(50),
+    Role VARCHAR(15),
+    Max_Passengers_Allowed INTEGER,
+    Fare_Per_KM INTEGER,
+    Assigned_On DATE,
+    CurrentGradeId INTEGER,
+    FOREIGN KEY (CurrentGradeId) REFERENCES Grades(Id)
+);
+
+CREATE TABLE Grades (
+    Grade_Id INTEGER PRIMARY KEY,
+    Name VARCHAR(25),
+    Max_Passengers_Allowed INTEGER,
+    Fare_Per_KM INTEGER,
+    Assigned_On DATE,
+    Employee_Id INTEGER,
+    FOREIGN KEY (Employee_Id) REFERENCES Users(Employee_Id)
+);
+
+CREATE TABLE GradesHistory (
+    Id INTEGER PRIMARY KEY,
+    Assigned_On DATE,
+    Employee_Id INTEGER,
+    Grade_Id INTEGER,
+    Max_Passengers_Allowed INTEGER,
+    Fare_Per_KM INTEGER,
+    FOREIGN KEY (Employee_Id) REFERENCES Users(Employee_Id),
+    FOREIGN KEY (Grade_Id) REFERENCES Grades(Grade_Id)
+);
+```
+
+These schemas create the tables with the specified columns and add the foreign key constraints as requested. Let me know if you need any further adjustments!
+
+
+
+
+
+Debasmita
 Sure, here's an example of a data SQL script for your schema:
 
 ```sql
