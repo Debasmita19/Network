@@ -1,3 +1,47 @@
+
+Certainly! Here's the updated schema for all three tables without the `IF NOT EXISTS` clause:
+
+```sql
+CREATE TABLE VehicleTypes (
+    Id INTEGER PRIMARY KEY,
+    Max_Passengers_Allowed INTEGER NOT NULL,
+    Fare_Per_KM INTEGER NOT NULL
+);
+
+CREATE TABLE Vehicles (
+    Registration_No VARCHAR(10) PRIMARY KEY,
+    BelongsTo_User_Id INTEGER NOT NULL,
+    Vehicle_Type_Id INTEGER NOT NULL,
+    Inspection_Status VARCHAR(10) NOT NULL,
+    Inspected_By_User_Id INTEGER NOT NULL,
+    Inspected_On DATE NOT NULL,
+    FOREIGN KEY (Vehicle_Type_Id) REFERENCES VehicleTypes(Id)
+);
+
+CREATE TABLE VehicleDetails (
+    Registration_No VARCHAR(10) PRIMARY KEY,
+    RTO_Name VARCHAR(10) NOT NULL,
+    Registration_Date DATE NOT NULL,
+    Registration_Expires_On DATE NOT NULL,
+    RC_Doc_URL VARCHAR(100) NOT NULL,
+    Insurance_Company_Name VARCHAR(50) NOT NULL,
+    Insurance_No INTEGER NOT NULL,
+    Insuranced_On DATE NOT NULL,
+    Insurance_Expires_On DATE NOT NULL,
+    Insurance_Certificate_DOC_URL VARCHAR(100) NOT NULL,
+    PUC_Certificate_No INTEGER NOT NULL,
+    PUC_Issued_On DATE NOT NULL,
+    PUC_Valid_Until DATE NOT NULL,
+    PUC_DOC_URL VARCHAR(100) NOT NULL,
+    Accessibility_Investigate VARCHAR(10) NOT NULL,
+    Search VARCHAR(10) NOT NULL,
+    FOREIGN KEY (Registration_No) REFERENCES Vehicles(Registration_No)
+);
+```
+
+This creates all three tables without checking if they already exist. Let me know if you need further assistance!
+
+
 Here's the schema for all three tables written in a single query following the specified pattern:
 
 ```sql
